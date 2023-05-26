@@ -1,0 +1,125 @@
+import SwiftUI
+
+struct chatView: View {
+    
+    let item: String
+    @Binding var index: Int
+    
+    @State private var messageText = ""
+    @State var messages: [String] = ["Welcome to ConverseLy! You may exclude accents or tone marks when typing your responses. You may enter the whole message or the different phrase between the options."]
+    @State var selfCount = 0
+    
+    var body: some View {
+        VStack {
+            HStack{
+                Text("ConverseLy")
+                    .font(.title)
+                    .bold()
+                Image(systemName: "bubble.left.fill")
+                    .font(.system(size: 24))
+                    .foregroundColor(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+            }
+            ScrollView{
+                ForEach(messages, id: \.self) { message in
+                    
+                    if message.contains("[USER]"){
+                        let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
+                        HStack{
+                            Spacer()
+                            Text(newMessage)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+                                .cornerRadius(10)
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, 10)
+                            
+                        }
+                        if !message.contains("start"){
+                            Rectangle()
+                                .frame(width: 10, height: 100)
+                                .foregroundColor(Color(red: 0.66, green: 0.69, blue: 0.82).opacity(0.001))
+                        }
+                    }
+                    else{
+                        let botMessage = message.replacingOccurrences(of: "[BOT]", with: "")
+                        HStack{
+                            Text(botMessage)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+                                .cornerRadius(10)
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, 10)
+                            Spacer()
+                        }
+                        if !message.contains("start"){
+                            HStack{
+                                Text(getUserOption(scenario: item, language: index, counter: selfCount))
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color(red: 0.75, green: 0.8, blue: 0.58))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                                    .onTapGesture {
+                                        selfCount = selfCount + 2
+                                    }
+                                
+                                Text(getUserOption(scenario: item, language: index, counter: selfCount + 1))
+                                    .padding()
+                                    .foregroundColor(.black)
+                                    .background(Color(red: 0.75, green: 0.8, blue: 0.58))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                                    .onTapGesture {
+                                        selfCount = selfCount + 2
+                                    }
+                                
+                            }
+                            .padding()
+                        }
+                    }
+                } .rotationEffect(.degrees(180))
+            }.rotationEffect(.degrees(180))
+                .background(Color(red: 0.75, green: 0.8, blue: 0.58).opacity(0.4))
+            
+            HStack{
+                TextField("Type something", text: $messageText)
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+                    .onSubmit{
+                        sendMessage(message: messageText)
+                    }
+                Button{
+                    sendMessage(message: messageText)
+                } label:{
+                    Image(systemName: "paperplane.fill")
+                        .foregroundColor(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+                }
+                .font(.system(size: 26))
+                .padding(.horizontal, 10)
+            }
+            .padding()
+        }
+    }
+    
+    func sendMessage(message: String){
+
+        withAnimation{
+            messages.append("[USER]" + message)
+            self.messageText = ""
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            withAnimation{
+                messages.append("[BOT]" + getBotResponse1(message: message, scenario: item, language: index))
+            }
+        }
+    }
+}
+
+ 
+
