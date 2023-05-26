@@ -1,0 +1,18 @@
+import SwiftUI
+import Foundation
+
+struct Page: Identifiable, Equatable{
+    let id = UUID()
+    var name: String
+    var description: String
+    var imageUrl: String
+    var tag: Int
+    
+    static var samplePage = Page(name: "Title example", description: "debugging", imageUrl: "tourist1", tag: 0)
+    
+    static var samplePages: [Page] = [
+        Page(name: "Welcome to ConverseLy", description: "Hello future traveller! Interested in learning the local language in a flash? ->", imageUrl: "tourist2", tag: 0),
+        Page(name: "What's New?", description: "ConverseLy focuses on everyday conversations that you are likely to have with the locals ->", imageUrl: "tourist1", tag: 1),
+        Page(name: "Are You Ready?", description: "We're glad you could prepare for your journey with us.", imageUrl: "tourist3", tag: 2),
+    ]
+}
