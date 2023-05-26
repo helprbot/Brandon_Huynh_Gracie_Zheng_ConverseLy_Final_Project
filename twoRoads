@@ -1,0 +1,33 @@
+import SwiftUI
+
+struct twoRoads: View{
+    var body: some View{
+        Text("Thanks for choosing ConverseLy on your language journey. Please select the language you want to learn in a flash.")
+            .padding()
+            .foregroundColor(.black)
+            .background(Color(red: 0.65, green: 0.8, blue: 0.5).opacity(0.5))
+            .cornerRadius(10)
+            .padding()
+        NavigationStack {
+            
+            VStack {
+                NavigationLink(destination: spanishView()) {
+                    Image("spanish")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                }
+                
+                NavigationLink(destination: chineseTones()) {
+                    Image("chinese")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                }
+            }
+        }        
+    }
+}
+
