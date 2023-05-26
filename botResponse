@@ -1,0 +1,239 @@
+import SwiftUI
+import Foundation
+
+func getBotResponse1(message: String, scenario: String, language: Int) -> String{
+    let input = message.lowercased()
+    print(scenario + "\(language)")
+    if scenario.contains("dinner") && language==1{
+        if input.contains("start"){
+            return "¡Hola!"
+        }
+        else if input.contains("reserva para cenar esta noche"){
+            return "¡Claro! ¿A qué nombre debería hacer la reserva y para cuántas personas? (Of course! Under what name should I make the reservation and for how many people?)"
+        }
+        else if input.contains("reserva seria para dos personas y el nombre es"){
+            return "Muy bien, Sr. Smith. ¿A qué hora desea cenar? (Very well, Mr. Smith. What time would you like to have dinner?)"
+        }
+        else if input.contains("podemos reservar a las 8:00 p.m., por favor"){
+            return "Perfecto, Sr. Smith. Tenemos una mesa disponible para dos personas a las 8:00 p.m. ¿Tienen alguna preferencia de ubicación en el restaurante? (Perfect, Mr. Smith. We have a table available for two people at 8:00 p.m.)"
+        }
+        else if input.contains("hasta luego"){
+            return "¡Hasta luego, Sr. Smith! (Goodbye, Mr. Smith!)"
+        }
+        else{
+            return "Try again"
+        }
+    } 
+    else if scenario.contains("direction") && language==1{
+        if input.contains("start"){
+            return "¡Hola!"
+        }
+        else if input.contains("puedes ayudarme a encontrar la estacion de tren mas cercana"){
+            return "¡Claro! La estación de tren está a unas cuadras de aquí. Ve derecho por esta calle y luego gira a la izquierda en la siguiente esquina. La verás a tu derecha. (Of course! The train station is a few blocks away from here. Go straight down this street, then turn left at the next corner. You'll see it on your right.)"
+        }
+        else if input.contains("muchas gracias por tu ayuda"){
+            return "De nada, ¡espero que llegues sin problemas a la estación! (You're welcome! I hope you make it to the station without any problems!)"
+        }
+        else{
+            return "Try again"
+        }
+    }
+    else if scenario.contains("coffee") && language==1{
+        if input.contains("start"){
+            return "¡Hola!"
+        }
+        else if input.contains("me gustaria pedir un cafe, por favor"){
+            return "¡Claro! ¿Qué tipo de café te gustaría y cómo lo prefieres? (Of course! What type of coffee would you like and how would you like it?)"
+        }
+        else if input.contains("expreso, bien cargado, por favor"){
+            return "¿Algo más? ¿Leche, azúcar o algún otro tipo de adición? (Anything else? Milk, sugar, or any other additions?)"
+        }
+        else if input.contains("solo un poco de leche caliente, por favor"){
+            return "Perfecto. Aquí tienes tu café expreso. ¿Deseas algo más? (Perfect. Here's your espresso. Is there anything else you'd like?)"
+        }
+        else if input.contains("no, eso es todo. gracias."){
+            return "De nada. ¡Que disfrutes tu café! (You're welcome. Enjoy your coffee!)"
+        }
+        else{
+            return "Try again"
+        }
+    }
+    else if scenario.contains("appointment") && language==1{
+        if input.contains("start"){
+            return "¡Hola!"
+        }
+        else if input.contains("necesitaria una cita con el medico"){
+            return "Claro, ¿cuál es el motivo de tu visita? (Of course, what is the reason for your visit?)"
+        }
+        else if input.contains("he estado experimentando dolores de cabeza frecuentes y persistentes en las ultimas semanas"){
+            return "Entiendo, ¿has notado algún otro síntoma asociado con los dolores de cabeza? (I understand. Have you noticed any other symptoms associated with the headaches?)"
+        }
+        else if input.contains("mareo"){
+            return "Gracias por compartir esa información. Vamos a programar una cita para que puedas ser evaluado adecuadamente. ¿Hay algún momento específico en el que prefieras venir? (Thank you for sharing that information. We will schedule an appointment so you can be properly evaluated. Is there any specific time you prefer to come?)"
+        }
+        else if input.contains("una cita por la tarde"){
+            return "Muy bien, tengo disponibilidad mañana a las 3:00 p.m. ¿Te viene bien? (Alright, I have availability tomorrow at 3:00 p.m. Does that work for you?)"
+        }
+        else if input.contains("si, esta bien. anotame para esa cita, por favor"){
+            return "Perfecto, hemos reservado una cita para ti mañana a las 3:00 p.m. Te enviaré un recordatorio por mensaje de texto. ¿Hay algo más con lo que pueda ayudarte? (Perfect, we have booked an appointment for you tomorrow at 3:00 p.m. I will send you a reminder via text message. Is there anything else I can assist you with?)"
+        }
+        else if input.contains("no, eso es todo por ahora. gracias, doctor"){
+            return "De nada. Nos vemos mañana en la consulta. (You're welcome. See you tomorrow at the clinic.)"
+        }
+        else{
+            return "Try again"
+        }
+    }
+    else if scenario.contains("friends") && language==1{
+        if input.contains("start"){
+            return "¡Hola! ¿Tienes planes para el fin de semana?"
+        }
+        else if input.contains("tienes alguna idea en mente?"){
+            return "He escuchado sobre un nuevo restaurante que abrió en el centro. ¿Te gustaría probarlo el sábado por la noche? (I've heard about a new restaurant that opened downtown. Would you like to try it on Saturday night?)"
+        }
+        else if input.contains("suena genial"){
+            return "¡Perfecto! Nos vemos entonces. ¡Disfrutemos del fin de semana! (Perfect! See you then. Let's enjoy the weekend!)"
+        }
+        else{
+            return "Try again"
+        }
+    }
+    else if scenario.contains("picture") && language==1{
+        if input.contains("start"){
+            return "¡Hola!"
+        }
+        else if input.contains("podrias tomarme una foto, por favor"){
+            return "Claro, sin problema. ¿Dónde te gustaría que te tome la foto? (Sure, no problem. Where would you like me to take the picture of you?)"
+        }
+        else if input.contains("tomarla frente a ese hermoso edificio de fondo"){
+            return "¡Por supuesto! Dame tu teléfono o cámara y te tomaré la foto. (Of course! Give me your phone or camera, and I'll take the picture for you.)"
+        }
+        else if input.contains("muchas gracias por tu ayuda"){
+            return "No hay de qué. ¡Listo, ya está! Espero que te guste la foto. (You're welcome. There you go, it's done! I hope you like the picture.)"
+        }
+        else{
+            return "Try again"
+        }
+    }
+
+    else if scenario.contains("dinner") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("women keyi yuding"){
+            return "Kěyǐ, qǐng wèn nǐmen de rénshù hé shíjiān?"
+        }
+        else if input.contains("women you san ge ren"){
+            return "Hǎode, qǐng wèn nǐ de míngzì hé liánxìfāngshì?"
+        }
+        else if input.contains("wo de mingzi"){
+            return "Liú Hǎo, wǒmen jiù zhǔnbèi hǎo，qǐng nǐ qīdiǎn wǔfēn dào."
+        }
+        else if input.contains("hao de"){
+            return "Bú kèqì."
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else if scenario.contains("direction") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("qingwen qu jianghe gongyuan"){
+            return "Hǎode, xià yí gè lùkǒu yòu guǎi, zài wǎng qián zǒu liǎng bù, nǐ jiù huì dào le."
+        }
+        else if input.contains("de bangzhu"){
+            return "Bú kèqì, rúguǒ ní xūyào gèng duō bāngzhù, qǐng suíshí wèn."
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else if scenario.contains("coffee") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("yi bei kafei"){
+            return "Hǎo de, nǐ xiǎng yào shénme zhǒnglèi de kāfēi?"
+        }
+        else if input.contains("yi bei late"){
+            return "Nín yào jiātáng kāfēi háishì yuán wèi kāfēi?"
+        }
+        else if input.contains("qing jia tang"){
+            return "Hǎode, ní děng yíxià, kāfēi kuài jiù hǎo le."
+        }
+        else if input.contains("xiexie"){
+            return "Bú kèqi."
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else if scenario.contains("appointment") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("qingwen wo keyi yuding"){
+            return "Kěyǐ, qǐng wèn nǐ xiǎng yùyuē nǎ yīshēng hé shíjiān?"
+        }
+        else if input.contains("wo xiang yuyue"){
+            return "Hǎode，qǐng wèn nǐ de míngzì hé liánxìfāngshì?"
+        }
+        else if input.contains("wo de mingzi shi"){
+            return "Zhāng Míng, wǒmen jiù zhǔnbèi hǎo，qǐng nǐ xiàwǔ liǎng diǎn lái."
+        }
+        else if input.contains("xiexie"){
+            return "Bú kèqì."
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else if scenario.contains("friend") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("zhe ge zhoumo ni"){
+            return "Nǐ hǎo, kěyǐ, wǒ zhè ge zhōumò méi yǒu rènhé jìhuà."
+        }
+        else if input.contains("women keyi qu kan"){
+            return "Tīng qǐlái búcuò, nǐ xiǎng kàn nǎ yí bù?"
+        }
+        else if input.contains("wo ting shuole"){
+            return "Hǎo de, wǒmen qù nǎ jiē diànyǐng yuàn?"
+        }
+        else if input.contains("fujin de yi jia"){
+            return "Hǎo de, xiàge zhōumò wǒmen jiàn yíxià, xièxiè nǐ de gèzhòng tiānzhēng."
+        }
+        else if input.contains("zhe ge zhoumo jian"){
+            return "Hǎo de, zài jiàn!"
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else if scenario.contains("picture") && language==2{
+        if input.contains("start"){
+            return "Nǐ hǎo."
+        }
+        else if input.contains("bang wo pai zhao"){
+            return "Hǎo de, méiyǒu wèntí."
+        }
+        else if input.contains("rang wo zai zheli"){
+            return "Méiyǒu wèntí, wǒ děng nǐ."
+        }
+        else if input.contains("qing zhao pai wo"){
+            return "Wǒ bāng nǐ pāi zhào."
+        }
+        else if input.contains("xiexie ni"){
+            return "Méiyǒu wèntí, gǎnxiè nǐ de gǎnxiè."
+        }
+        else{
+            return "Try again."
+        }
+    }
+    else{
+        return "Something went wrong."
+    }
+}
