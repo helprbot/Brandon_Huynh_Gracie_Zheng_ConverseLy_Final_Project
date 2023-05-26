@@ -1,0 +1,91 @@
+import SwiftUI
+let spanishDinner: [String] = ["¡Hola! Me gustaría hacer una fiesta para cenar esta noche.", "¡Hola! Me gustaría hacer una reserva para cenar esta noche.", "La reserva sería para dos personas y el nombre es Smith.", "La reserva sería para dos perros y el nombre es Smith.", "¿Podemos reservar a las 8:00 p.m., por favor?", "¿Podemos reservar a las 6:00 a.m., por favor?", "¡Gracias! Hasta luego.", "¡Gracias! Bienvenido."]
+let spanishDirections: [String] = ["Disculpa, ¿puedes ayudarme a encontrar la estación de tren más cercana?", "Disculpa, ¿puedes ayudarme a cantar la estación de tren más cercana?", "¡Bruto! Muchas gracias por tu ayuda.", "¡Perfecto! Muchas gracias por tu ayuda."]
+let spanishCoffee: [String] = ["Buenos días, me gustaría comer un café, por favor.", "Buenos días, me gustaría pedir un café, por favor.", "Me gustaría un café expreso, bien cargado, por favor.", "Me gustaría un café expreso, con jugo de naranja, por favor.", "Solo un poco de leche caliente, por favor. Sin azúcar.", "Solo un poco de sopa caliente, por favor. Sin azúcar.", "Sí, me gustaría un gato, por favor.", "Sí, me gustaría un croissant, por favor.", "No, eso es todo. Gracias.", "No, eso no es todo. Gracias."]
+let spanishDoctor: [String] = ["Buenos días, necesitaría una cita con el médico, por favor.", "Buenos días, necesitaría una cena con el médico, por favor.", "He estado experimentando dolores de cabeza frecuentes y persistentes en las últimas semanas.", "He estado experimentando dolores de cabeza frecuentes y persistentes en las semanas futuras.", "Sí, también he tenido tristeza y un poco de visión borrosa en ocasiones.", "Sí, también he tenido sensación de mareo y un poco de visión borrosa en ocasiones.", "Preferiría una cita por la tarde, si es posible.", "Preferiría una cita de medianoche, si es posible.", "Sí, está bien. Anótame para esa cita, por favor.", "Sí, está mal. Anótame para esa cita, por favor.", "No, eso es todo por ahora. Gracias, doctor.", "No, eso es todo por ahora. Gracias, profesor."]
+let spanishFriends: [String] = ["No, todavía no tengo nada planeado. ¿Tienes alguna idea en cuerpo?", "No, todavía no tengo nada planeado. ¿Tienes alguna idea en menta?", "¡Suena genial! Estoy emocionado por probarlo. Nos vemos el sábado a las 7:00 p.m. allí.", "¡Suena horrible! Estoy emocionado por probarlo. Nos vemos el sábado a las 7:00 p.m. allí."]
+let spanishPicture: [String] = ["Disculpa, ¿podrías tomarme una foto, por favor?", "Disculpa, ¿podrías tomar mi billetera, por favor?", "Sería genial si pudieras tomarla frente a ese hermoso edificio de fondo.", "Sería genial si pudieras tomarla frente a ese hermoso hormiga de fondo.", "Aquí tienes. Muchas gracias por tu ayuda.", "Aquí tienes. Muchas gracias por nada."]
+let chineseDinner: [String] = ["Nǐ hǎo, wǒ xiǎng wèn yíxià, wǒmen kěyǐ yùdìng yī gè wǎncān ma?", "Nǐ hǎo, wǒ xiǎng wèn yíxià, wǒmen kěyǐ chī yǐ gè cānwa ma?", "Wǒmen yǒu sān gè rén, qīdiǎn dào qī diǎn shíwǔ fēn zhījiān néng lái ma?", "Wǒmen yǒu sānshí gè rén, qīdiǎn dào qī diǎn shíwǔ fēn zhījiān néng lái ma?", "Wǒ de míngzì shì Liú Hǎo, liánxìfāngshì shì shǒujī hàomǎ 138-XXXX-XXXX.", "Wǒ de liánxìfāngshì shì Liú Hǎo, míngzì shì shǒujī hàomǎ 138-XXXX-XXXX.", "Hǎo de，xièxiè.", "Bú hǎo，xièxiè."]
+let chineseDirections: [String] = ["Nǐ hǎo, wǒ xiǎng wèn yíxià, qǐngwèn qù jiānghé gōngyuán zěnme zǒu?", "Nǐ hǎo, wǒ xiǎng wèn yíxià, qǐngwèn qù wǒ de fángzi zěnme zǒu?", "Xièxiè nǐ de gōngyuán!", "Xièxiè nǐ de bāngzhù!"]
+let chineseCoffee: [String] = ["Wǒ yào yì bēi mǐ fàn, qǐng wèn nǐmen yǒu méiyǒu?", "Wǒ yào yì bēi kāfēi, qǐng wèn nǐmen yǒu méiyǒu?", "Wǒ xiǎng yào yì bēi kāfēi.", "Wǒ xiǎng yào yì bēi lātè.", "Qǐng jiā táng.", "Qǐng jiā táng.", "Xièxiè", "Bú hǎo, xièxiè."]
+let chineseDoctor: [String] = ["Wǒ yào wèn yíxià, qǐngwèn wǒ kěyǐ yùdìng yī cì yīshēng yùyuē ma?", "Wǒ yào wèn yíxià, qǐngwèn wǒ kěyǐ yùdìng yī cì wéibōlú yùyuē ma?", "Wǒ xiǎng yùyuē Lǐ dàifu, zhè zhōngwǔ de xiàwǔ liǎng diǎn.", "Wǒ xiǎng yùyuē Lǐ dàifu, zhè yèwǎn liǎng diǎn.", "Wǒ de míngzì shì Zhāng Míng, liánxìfāngshì shì shǒujī hàomǎ 138-XXXX-XXXX.", "Wǒ de liánxìfāngshì shì Zhāng Míng, míngzì shì shǒujī hàomǎ 138-XXXX-XXXX.", "Hǎo de，xièxiè.", "Bú hǎo，xièxiè."]
+let chineseFriends: [String] = ["Nǐ hǎo, wǒ xiǎng wèn yíxià, qǐngwèn zhè ge zhōumò ní néng yǒu kòng ma?", "Nǐ hǎo, wǒ xiǎng wèn yíxià, qǐngwèn zhè ge zhōumò ní néng yǒu kòng ma?", "Hǎo de, wǒmen kěyǐ qù kàn yì bù diànyǐng ma?", "Hǎo de, wǒmen kěyǐ qù kàn yì ge jīngyú ma?", "Wǒ tīng shuōle yí bù hǎokàn de zhīzhū, jìhuà qù kàn \"Wēi xié zhàn zhēng.\"", "Wǒ tīng shuōle yí bù hǎokàn de àn, jìhuà qù kàn \"Wēi xié zhàn zhēng.\"", "Wǒmen kěyǐ qù zhè fùjìn de yì jiā diànyǐng yuàn, shíjiān hé wèizhǐ dōu bǐjiào héshì.", "Wǒmen kěyǐ qù hěn yuǎn de yì jiā diànyǐng yuàn, shíjiān hé wèizhǐ dōu bǐjiào héshì.", "Bú kèqi, wǒmen zhè bù huì jiàn!", "Bú kèqi, wǒmen zhè ge zhōumò jiàn!"]
+let chinesePicture: [String] = ["Nǐ hǎo, qǐngwèn nǐ néng bāng wǒ pāi zhào ma?", "Nǐ hǎo, qǐngwèn nǐ néng bāng wǒ zuòhuà zhào ma?", "Xièxiè nǐ! Ràng wǒ zài zhèlǐ zhǎodào yīgè hǎo de bāozi.", "Xièxiè nǐ! Ràng wǒ zài zhèlǐ zhǎodào yīgè hǎo de zīshì.", "Hǎo, wǒ zhǔnbèi hǎo le. Qǐng zhào pài wǒ!", "Hǎo, wǒ bù huì zhǔnbèi hǎo le. Qǐng bùyào zhào pài wǒ!", "Xièxiè nǐ! Hǎo le, xià yí gè yǒu jiànkāng wèntí wǒ zài wèn nǐ.", "Xièxiè nǐ! Hǎo le, xià yí gè yǒu wèntí wǒ zài wèn nǐ."]
+
+
+func getUserOption(scenario: String, language: Int, counter: Int) -> String{
+    
+    if scenario.contains("dinner") && language==1{
+        if counter >= spanishDinner.count{
+            return "Adios."
+        }
+        return spanishDinner[counter]
+    }
+    else if scenario.contains("direction") && language==1{
+        if counter >= spanishDirections.count{
+            return "Adios."
+        }
+        return spanishDirections[counter]
+    }
+    else if scenario.contains("coffee") && language==1{
+        if counter >= spanishCoffee.count{
+            return "Adios."
+        }
+        return spanishCoffee[counter]
+    }
+    else if scenario.contains("appointment") && language==1{
+        if counter >= spanishDoctor.count{
+            return "Adios."
+        }
+        return spanishDoctor[counter]
+    }
+    else if scenario.contains("friend") && language==1{
+        if counter >= spanishFriends.count{
+            return "Adios."
+        }
+        return spanishFriends[counter]
+    }
+    else if scenario.contains("picture") && language==1{
+        if counter >= spanishPicture.count{
+            return "Adios."
+        }
+        return spanishPicture[counter]
+    }
+    else if scenario.contains("dinner") && language==2{
+        if counter >= chineseDinner.count{
+            return "Zàijiàn."
+        }
+        return chineseDinner[counter]
+    }
+    else if scenario.contains("directions") && language==2{
+        if counter >= chineseDirections.count{
+            return "Zàijiàn."
+        }
+        return chineseDirections[counter]
+    }
+    else if scenario.contains("coffee") && language==2{
+        if counter >= chineseCoffee.count{
+            return "Zàijiàn."
+        }
+        return chineseCoffee[counter]
+    }
+    else if scenario.contains("appointment") && language==2{
+        if counter >= chineseDoctor.count{
+            return "Zàijiàn."
+        }
+        return chineseDoctor[counter]
+    }
+    else if scenario.contains("friends") && language==2{
+        if counter >= chineseFriends.count{
+            return "Zàijiàn."
+        }
+        return chineseFriends[counter]
+    }
+    else if scenario.contains("picture") && language==2{
+        if counter >= chinesePicture.count{
+            return "Zàijiàn."
+        }
+        return chinesePicture[counter]
+    }
+    return "Something went wrong"
+}
