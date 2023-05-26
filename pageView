@@ -1,0 +1,30 @@
+import SwiftUI
+
+struct PageView: View{
+    var page: Page
+    
+    var body: some View{
+        VStack(spacing: 20){
+            Image("\(page.imageUrl)")
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .cornerRadius(30)
+                .background(Color(red: 0.9, green: 0.75, blue: 0.95).opacity(0.3))
+                .cornerRadius(10)
+                .padding()
+            
+            Text(page.name)
+                .font(.title)
+            
+            Text(page.description)
+                .font(.subheadline)
+                .frame(width: 300)
+        }
+    }
+}
+struct PageView_Previews: PreviewProvider{
+    static var previews: some View{
+        PageView(page: Page.samplePage)
+    }
+}
