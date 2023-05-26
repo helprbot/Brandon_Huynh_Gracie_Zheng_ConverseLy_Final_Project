@@ -1,0 +1,26 @@
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        NavigationStack {
+            VStack {
+                
+                NavigationLink(destination: spanishView()) {
+                    Image("spanish")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                }
+               
+                NavigationLink(destination: chineseTones()) {
+                    Image("chinese")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .padding(.vertical)
+                }
+            }
+        }
+    } 
+}
