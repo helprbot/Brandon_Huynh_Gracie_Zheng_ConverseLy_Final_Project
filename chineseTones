@@ -1,0 +1,62 @@
+import SwiftUI
+import Subsonic
+struct chineseTones: View {
+    private var words: [String] = ["mā","má","mǎ","mà"]
+    
+    private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    var body: some View {
+        HStack{
+            Text("ConverseLy")
+                .font(.title)
+            Image(systemName: "bubble.left.fill")
+                .font(.system(size: 24))
+                .foregroundColor(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+        }
+        Text("Nice choice! Before we start, something special about Mandarin Chinese is that the language has four unique \"tones\" that shape how a word is pronounced.")
+            .padding()
+            .foregroundColor(.black)
+            .background(Color(red: 0.75, green: 0.8, blue: 0.58))
+            .cornerRadius(10)
+            ScrollView{
+                LazyVGrid(columns: adaptiveColumns, spacing: 0){
+                    ForEach(words, id: \.self) { tone in
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 150, height: 150)
+                                .foregroundColor(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+                                .cornerRadius(20)
+                            Text("\(tone)")
+                                .foregroundColor(.white)
+                                .font(.system(size: 60, weight:.medium, design: .rounded))
+                            Button(){
+                                if(tone=="mā"){
+                                    play(sound: "ma2.m4a")
+                                }
+                                else if(tone=="má"){                    
+                                    play(sound: "ma1.m4a")
+                                }
+                                else if(tone=="mǎ"){
+                                    play(sound: "ma3.m4a")
+                                }
+                                else{
+                                    play(sound: "ma4.m4a")
+                                }
+                            }label:{
+                                Image("blank")
+                            }
+                        }
+                    }}
+                .padding()
+                    NavigationLink(destination: chineseView()) {
+                        
+                        Text("move on ->")
+                            .foregroundColor(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.7))
+                            .font(.system(size: 20, weight:.medium, design: .rounded))
+                    }
+                    .padding()
+                }
+            } 
+        }
+
