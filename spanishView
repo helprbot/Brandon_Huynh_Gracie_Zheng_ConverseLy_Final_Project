@@ -1,0 +1,117 @@
+import SwiftUI
+struct spanishView: View {
+    @State var languageIndex = 1
+    let data = ["dinner reservation", "ask for directions", "order coffee", "appointment", "plans with friends", "taking pictures"]
+    private let layout = [
+        GridItem(.adaptive(minimum: 170))
+    ]
+    
+    var body: some View {
+        
+        Text("Welcome to the Spanish course! Please pick the scenario you want to translate.")
+            .padding()
+            .foregroundColor(.black)
+            .background(Color(red: 0.75, green: 0.8, blue: 0.58).opacity(0.5))
+            .cornerRadius(10)
+            .padding()
+        NavigationStack{
+            ScrollView {
+                LazyVGrid(columns: layout, spacing: 20){
+                    ForEach(data, id: \.self){ item in
+                        VStack{
+                            NavigationLink(destination: chatView(item: item, index: $languageIndex)) {
+                                if item.contains("dinner"){
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "table.furniture")
+                                                    .font(.system(size: 40))
+                                            )
+                                        Text(item)
+                                            .font(.callout)
+                                    }
+                                }
+                                else if item.contains("directions"){
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "signpost.right.and.left")
+                                                    .font(.system(size: 40))
+                                            )
+                                        Text(item)
+                                            .font(.callout)
+                                    }
+                                }
+                                else if item.contains("order"){ 
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "cup.and.saucer")
+                                                    .font(.system(size: 40))
+                                            ) 
+                                        Text(item)
+                                            .font(.callout)
+                                    }
+                                }
+                                else if item.contains("appointment"){
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "calendar.badge.plus")
+                                                    .font(.system(size: 40))
+                                            ) 
+                                        Text(item)
+                                            .font(.callout)
+                                    }
+                                }
+                                else if item.contains("friends"){
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "figure.socialdance")
+                                                    .font(.system(size: 40))
+                                            ) 
+                                        Text(item)
+                                            .font(.callout)
+                                    }
+                                }
+                                else{
+                                    VStack{
+                                        Rectangle()
+                                            .fill(Color(red: 0.32, green: 0.08, blue: 0.31).opacity(0.5))
+                                            .frame(width: 125, height: 125)
+                                            .cornerRadius(10)
+                                            .background(
+                                                Image(systemName: "camera")
+                                                    .font(.system(size: 40))
+                                            ) 
+                                        Text(item)
+                                            .font(.callout)
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    } 
+                }        
+            }
+        }
+    }}
+
+
