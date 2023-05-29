@@ -1,26 +1,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var pageIndex = 0
+    private let pages: [Page] = Page.samplePages
+    private let dotAppearance = UIPageControl.appearance()
     var body: some View {
-        NavigationStack {
-            VStack {
-                
-                NavigationLink(destination: spanishView()) {
-                    Image("spanish")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                        .padding(.vertical)
-                }
-               
-                NavigationLink(destination: chineseTones()) {
-                    Image("chinese")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                        .padding(.vertical)
+        NavigationStack{
+            TabView(selection: $pageIndex){
+                ForEach(pages){ page in
+                    VStack{
+                        Spacer()
+                        PageView(page: page)
+                        Spacer()
+                        if page == pages.last{
+                            NavigationLink(destination: twoRoads()) {
+                                Text("move on ->")
+                            }
+                            Spacer()
+                        }
+                        else{
+                            Button("", action: incrementPage)
+                        }
+                        Spacer()
+                    }
+                    .tag(page.tag)
                 }
             }
-        }
-    } 
+            .animation(.easeInOut, value: pageIndex)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+            .onAppear {
+                dotAppearance.currentPageIndicatorTintColor = .systemPurple
+                dotAppearance.pageIndicatorTintColor = .purple
+            }
+            
+        }}
+    func incrementPage(){
+        pageIndex += 1
+    }
+    
+    func goToZero(){
+        pageIndex = 0
+    }
 }
